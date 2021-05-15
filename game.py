@@ -14,4 +14,4 @@ draw_canvas.inicia()
 draw_canvas.desenha(cnv)
 
 cnv.pack()
-top.mainloop()ß
+top.mainloop()
