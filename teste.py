@@ -1,4 +1,6 @@
+import tkinter
 from model import game_rules
+from view import draw_canvas
 
 
 def testeDificuldade():
@@ -28,9 +30,28 @@ def testeCompara():
     print(game_rules.respostaSenha)
 
 
-testeDificuldade()
-testeCriaSenha()
-testeTentativaJogador()
-testeCompara()
+def desenhaTabuleiro():
+    root = tkinter.Tk()
+    cnv = tkinter.Canvas(root, bg="white", height=700, width=1200)
+    draw_canvas.inicia("facil")
+    draw_canvas.desenha(cnv)
+    cnv.pack()
+    root.mainloop() 
 
+
+def desenhaEscolhaNivel():
+    root = tkinter.Tk()
+    cnv = tkinter.Canvas(root, bg="white", height=700, width=1200)
+    draw_canvas.escolheNivel(cnv)
+    cnv.pack()
+    root.mainloop() 
+
+
+# Chamadas dos testes
+# testeDificuldade()
+# testeCriaSenha()
+# testeTentativaJogador()
+# testeCompara()
+# desenhaTabuleiro()
+# desenhaEscolhaNivel()
 
