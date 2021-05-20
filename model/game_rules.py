@@ -1,4 +1,4 @@
-__all__ = ['novoJogo', 'dificuldade', 'criaSenha', 'compara', 'tentativaJogador']
+__all__ = ['setDificuldade', 'criaSenha', 'compara', 'tentativaJogador']
 import random
 
 white = (255,255,255)
