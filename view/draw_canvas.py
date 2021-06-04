@@ -19,8 +19,9 @@ def desenha(cnv):
     limiteJogadas = game_rules.limiteJogadas
     
     for j in range(len(listaCoresDisponiveis)):
-       cnv.create_oval(j * SIZE, (Y + 1) * SIZE - 400, (j + 1) * SIZE, (Y + 2) * SIZE - 400, fill = listaCoresDisponiveis[j], width = 5,tags=listaCoresDisponiveis[j])
+       cnv.create_oval(j * SIZE, (Y + 1) * SIZE - 400, (j + 1) * SIZE, (Y + 2) * SIZE - 400, fill = listaCoresDisponiveis[j], width = 5,tags='cores')
        print(listaCoresDisponiveis[j])
+       print(j*SIZE,(j + 1) * SIZE)
 
     for column in range(nPedras):
             for row in range(limiteJogadas):

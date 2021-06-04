@@ -19,14 +19,8 @@ cnv.tag_bind("nivel2","<Button-1>",event_handler.nivel2)
 cnv.tag_bind("nivel3","<Button-1>",event_handler.nivel3)
 
 #bind de circulos de cores
-cnv.tag_bind("red","<Button-1>",lambda: event_handler.insereCor("red"))
-cnv.tag_bind("green","<Button-1>",lambda: event_handler.insereCor("green"))
-cnv.tag_bind("blue","<Button-1>",lambda: event_handler.insereCor("blue"))
-cnv.tag_bind("yellow","<Button-1>",lambda: event_handler.insereCor("yellow"))
-cnv.tag_bind("pink","<Button-1>",lambda: event_handler.insereCor("pink"))
-cnv.tag_bind("cyan","<Button-1>",lambda: event_handler.insereCor("cyan"))
-cnv.tag_bind("brown","<Button-1>",lambda: event_handler.insereCor("brown"))
-cnv.tag_bind("purple","<Button-1>",lambda: event_handler.insereCor("purple"))
+cnv.tag_bind("cores","<Button-1>",event_handler.insereCor)
+
 
 
 btn = Button(root,text="iniciar",width=12,bg="red",height=2,font ="arial 20",command=lambda: [draw_canvas.desenha(cnv),btn.destroy()])

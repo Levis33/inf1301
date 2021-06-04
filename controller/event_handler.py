@@ -9,5 +9,21 @@ def nivel2(*args):
 def nivel3(*args):
     draw_canvas.inicia("dificil")
 
-def insereCor(cor):
-    print(cor)
+def insereCor(event):
+    if event.x < 50:
+        print("red")
+    elif event.x < 100:
+        print("green")
+    elif event.x < 150:
+        print("blue")
+    elif event.x < 200:
+        print("yellow")
+    elif event.x < 250:
+        print("pink")
+    elif event.x < 300:
+        print("cyan")
+    elif event.x < 350:
+        print("brown")
+    else:
+        print("purple")
+

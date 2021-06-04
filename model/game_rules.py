@@ -14,7 +14,7 @@ purple= (127,0,255)
 
 limiteJogadas = 0 #
 nPedras = 0 # numero de pedras de acordo com a 
-cores = ['red','green','blue','yellow','pink','cyan','brown','purple']
+cores = ['red','green','blue','yellow','pink','cyan','brown4','purple']
 senha = []
 tentativaSenha = []
 respostaSenha = []
