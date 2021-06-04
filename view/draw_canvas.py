@@ -13,6 +13,7 @@ def inicia(nivel):
  
     
 def desenha(cnv):
+    cnv.delete("all")
     listaCoresDisponiveis = game_rules.cores[0:game_rules.n_de_cores]
     nPedras = game_rules.nPedras
     limiteJogadas = game_rules.limiteJogadas
@@ -45,7 +46,3 @@ def escolheNivel(cnv):
     #iniciar = cnv.create_rectangle(xCentro - 550,100,xCentro - 400,200,fill = "blue",tags="iniciar")
     #iniciartext = cnv.create_text((xCentro-475,150), text="Iniciar", font = "arial 20",tags="iniciar")
     
-
-def tabuleiro(cnv):
-    cnv.delete("all")
-    desenha(cnv)

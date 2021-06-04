@@ -29,7 +29,7 @@ cnv.tag_bind("brown","<Button-1>",lambda: event_handler.insereCor("brown"))
 cnv.tag_bind("purple","<Button-1>",lambda: event_handler.insereCor("purple"))
 
 
-btn = Button(root,text="iniciar",width=12,bg="red",height=2,font ="arial 20",command=lambda: [draw_canvas.tabuleiro(cnv),btn.destroy()])
+btn = Button(root,text="iniciar",width=12,bg="red",height=2,font ="arial 20",command=lambda: [draw_canvas.desenha(cnv),btn.destroy()])
 
 btn.place(x=50,y=100)
 
