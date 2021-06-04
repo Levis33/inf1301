@@ -3,6 +3,10 @@ from model import game_rules
 SIZE = 50
 Y = 20
 
+global columnR,rowR
+columnR = 0
+rowR = 0
+
 xCentro = 600
 yCentro = 350
 
@@ -30,6 +34,8 @@ def desenha(cnv):
                 x2 = x1 + SIZE
                 y2 = y1 + SIZE
                 cnv.create_oval(x1,y1,x2,y2, fill="gray")
+                print(column,row)
+
 
 
 def escolheNivel(cnv):
@@ -47,3 +53,23 @@ def escolheNivel(cnv):
     #iniciar = cnv.create_rectangle(xCentro - 550,100,xCentro - 400,200,fill = "blue",tags="iniciar")
     #iniciartext = cnv.create_text((xCentro-475,150), text="Iniciar", font = "arial 20",tags="iniciar")
     
+def redesenhaCirculos(cnv):
+    global sizeR,yR,columnR,rowR
+
+    listaCoresDisponiveis = game_rules.cores[0:game_rules.n_de_cores]
+    nPedras = game_rules.nPedras
+    limiteJogadas = game_rules.limiteJogadas
+    print(nPedras,limiteJogadas,columnR,rowR,"nPedras,limiteJogadas,columnR,rowR")
+
+    if columnR <  limiteJogadas:
+            if rowR < nPedras:
+                x1 = rowR * SIZE
+                y1 = columnR * SIZE
+                x2 = x1 + SIZE
+                y2 = y1 + SIZE
+                cnv.create_oval(x1,y1,x2,y2, fill=game_rules.tentativaSenha[rowR])
+                rowR+=1
+                if rowR == nPedras-1:
+                    rowR = 0
+                    columnR +=1
+                #print(column,row)

@@ -1,4 +1,5 @@
 from view import draw_canvas
+from model import game_rules
 
 def nivel1(*args):
     draw_canvas.inicia("facil")
@@ -11,19 +12,21 @@ def nivel3(*args):
 
 def insereCor(event):
     if event.x < 50:
-        print("red")
+        game_rules.tentativaJogador("red")
     elif event.x < 100:
-        print("green")
+        game_rules.tentativaJogador("green")
     elif event.x < 150:
-        print("blue")
+        game_rules.tentativaJogador("blue")
     elif event.x < 200:
-        print("yellow")
+        game_rules.tentativaJogador("yellow")
     elif event.x < 250:
-        print("pink")
+        game_rules.tentativaJogador("pink")
     elif event.x < 300:
-        print("cyan")
+        game_rules.tentativaJogador("cyan")
     elif event.x < 350:
-        print("brown")
+        game_rules.tentativaJogador("brown")
     else:
-        print("purple")
+        game_rules.tentativaJogador("purple")
+
+    print(game_rules.respostaSenha)
 

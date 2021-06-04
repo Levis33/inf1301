@@ -54,12 +54,14 @@ def criaSenha():
     senha.append(cores[random.randrange(0,n_de_cores)])
 
 #gera uma tentativa para o jogador
-def tentativaJogador():
-  global tentativaSenha
-  
-  for i in range(0,nPedras):
-    input_jogador = input('digite uma cor:')
-    tentativaSenha.append(input_jogador)
+def tentativaJogador(cor):
+  global tentativaSenha,respostaSenha
+  tentativaSenha.append(cor)
+  print(tentativaSenha)
+  if (len(tentativaSenha)==nPedras):
+        compara()
+        tentativaSenha = []
+        respostaSenha = []
 
 #compara a tentativa do jogador com a senha
 def compara():
@@ -73,7 +75,7 @@ def compara():
 
     else:
       respostaSenha.append('vazia')
-
+  print(respostaSenha)
   if tentativaSenha == senha:
     print('ganhou')
     return True
