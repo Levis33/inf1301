@@ -18,7 +18,8 @@ def desenha(cnv):
     limiteJogadas = game_rules.limiteJogadas
     
     for j in range(len(listaCoresDisponiveis)):
-       cnv.create_oval(j * SIZE, (Y + 1) * SIZE - 400, (j + 1) * SIZE, (Y + 2) * SIZE - 400, fill = listaCoresDisponiveis[j], width = 5)
+       cnv.create_oval(j * SIZE, (Y + 1) * SIZE - 400, (j + 1) * SIZE, (Y + 2) * SIZE - 400, fill = listaCoresDisponiveis[j], width = 5,tags=listaCoresDisponiveis[j])
+       print(listaCoresDisponiveis[j])
 
     for column in range(nPedras):
             for row in range(limiteJogadas):
@@ -30,12 +31,21 @@ def desenha(cnv):
 
 
 def escolheNivel(cnv):
+    cnv.delete("all")
     global xCentro, yCentro
     cnv.create_text((xCentro,50), fill="darkblue" ,text="escolha um nivel e clique em 'iniciar'", font = "arial 20")
-    cnv.create_rectangle(xCentro - 100,100,xCentro + 100,200,fill = "red")
-    cnv.create_rectangle(xCentro - 100,300,xCentro + 100,400,fill = "red")
-    cnv.create_rectangle(xCentro - 100,500,xCentro + 100,600,fill = "red")
-    cnv.create_text((xCentro,150), text="nivel 1", font = "arial 20")
-    cnv.create_text((xCentro,350), text="nivel 2", font = "arial 20")
-    cnv.create_text((xCentro,550), text="nivel 3", font = "arial 20")
-   
+    nivel1 = cnv.create_rectangle(xCentro - 100,100,xCentro + 100,200,fill = "red",tags="nivel1")
+    nivel2 = cnv.create_rectangle(xCentro - 100,300,xCentro + 100,400,fill = "red",tags="nivel2")
+    nivel3 = cnv.create_rectangle(xCentro - 100,500,xCentro + 100,600,fill = "red",tags="nivel3")
+    nivel1text = cnv.create_text((xCentro,150), text="nivel 1", font = "arial 20",tags="nivel1")
+    nivel2text = cnv.create_text((xCentro,350), text="nivel 2", font = "arial 20",tags="nivel2")
+    nivel3text = cnv.create_text((xCentro,550), text="nivel 3", font = "arial 20",tags="nivel3")
+
+    #Iniciar e futuramente Continuar
+    #iniciar = cnv.create_rectangle(xCentro - 550,100,xCentro - 400,200,fill = "blue",tags="iniciar")
+    #iniciartext = cnv.create_text((xCentro-475,150), text="Iniciar", font = "arial 20",tags="iniciar")
+    
+
+def tabuleiro(cnv):
+    cnv.delete("all")
+    desenha(cnv)

@@ -49,6 +49,7 @@ def setDificuldade(nivel):
 #gera uma senha
 def criaSenha():
   global cores,n_de_cores,senha,nPedras
+  senha = []
   for i in range(0,nPedras):
     senha.append(cores[random.randrange(0,n_de_cores)])
 
