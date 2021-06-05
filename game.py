@@ -23,5 +23,6 @@ btn = Button(root,text="iniciar",width=12,bg="red",height=2,font ="arial 20",com
 
 btn.place(x=50,y=100)
 
+
 cnv.pack()
 root.mainloop()

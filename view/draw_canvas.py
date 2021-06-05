@@ -59,8 +59,18 @@ def redesenhaCirculos(cnv):
             x2 = x1 + SIZE
             y2 = y1 + SIZE
             cnv.create_oval(x1,y1,x2,y2, fill=game_rules.tentativaSenha[rowR])
+            #desenha as marcas da tentativa de senha
+            if(len(game_rules.respostaSenha) == game_rules.nPedras):
+                for i in range(nPedras):
+                    x1 = (rowR+i+1) * SIZE +10
+                    y1 = columnR * SIZE 
+                    x2 = x1 + SIZE 
+                    y2 = y1 + SIZE
+                    #if(game_rules.respostaSenha[i] != 'vazia'):#se o espaco for preto ou branco desenha a cor ao lado
+                    cnv.create_oval(x1,y1,x2,y2, fill=game_rules.respostaSenha[i])
             rowR+=1
             if rowR == nPedras:
                 rowR = 0
                 columnR +=1
                 game_rules.tentativaSenha = []
+
