@@ -57,10 +57,8 @@ def criaSenha():
 def tentativaJogador(cor):
   global tentativaSenha,respostaSenha
   tentativaSenha.append(cor)
-  print(tentativaSenha)
   if (len(tentativaSenha)==nPedras):
         compara()
-        tentativaSenha = []
         respostaSenha = []
 
 #compara a tentativa do jogador com a senha
@@ -75,7 +73,7 @@ def compara():
 
     else:
       respostaSenha.append('vazia')
-  print(respostaSenha)
+      
   if tentativaSenha == senha:
     print('ganhou')
     return True
