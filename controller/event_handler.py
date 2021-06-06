@@ -11,7 +11,7 @@ def nivel3(*args):
     draw_canvas.inicia("dificil")
 
 def insereCor(event,cnv):
-    print(game_rules.senha)
+    #print(game_rules.senha)
     if event.x < 50:
         game_rules.tentativaJogador("red")
         draw_canvas.redesenhaCirculos(cnv)
@@ -31,7 +31,7 @@ def insereCor(event,cnv):
         game_rules.tentativaJogador("cyan")
         draw_canvas.redesenhaCirculos(cnv)
     elif event.x < 350:
-        game_rules.tentativaJogador("brown")
+        game_rules.tentativaJogador("brown4")
         draw_canvas.redesenhaCirculos(cnv)
     else:
         game_rules.tentativaJogador("purple")

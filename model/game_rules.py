@@ -74,8 +74,8 @@ def compara():
 
     else:
       respostaSenha.append('grey')
-  print(respostaSenha)
+  print(senha)
   if tentativaSenha == senha:
-    print('ganhou')
+    #print('ganhou')
     return True
 
