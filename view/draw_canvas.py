@@ -76,7 +76,6 @@ def redesenhaCirculos(cnv):
                 columnR +=1
                 game_rules.tentativaSenha = []
 
-
 def desenhaVitoriaouDerrota(cnv,vitoriaOuDerrota):
     cnv.delete("all")
 
@@ -89,4 +88,9 @@ def desenhaVitoriaouDerrota(cnv,vitoriaOuDerrota):
            cnv.create_oval(j * SIZE +500, (Y + 1) * SIZE - 850, (j + 1) * SIZE +500, (Y + 2) * SIZE - 850, fill = game_rules.senha[j], width = 5)
 
     textoSaida = cnv.create_text((xCentro,300), text="Para jogar novamente reinicie o jogo", font = "arial 20")
+    
+
+def recuperaPartida(cnv):
+    cnv.delete("all")
+    #continuar
     

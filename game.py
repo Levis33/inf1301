@@ -20,11 +20,14 @@ cnv.tag_bind("nivel3","<Button-1>",event_handler.nivel3)
 
 #bind de circulos de cores
 cnv.tag_bind("cores","<Button-1>", lambda event: event_handler.insereCor(event,cnv))
-#foi utilizado o lambda para não ser desenhado até o botao seja clicado
-btn = Button(root,text="iniciar",width=12,bg="red",height=2,font ="arial 20",command=lambda: [draw_canvas.desenha(cnv),btn.destroy()])
+#foi utilizado o lambda para não ser desenhado até o botao seja clicado, e para tambem ser possivel passar mais de 1 funcao sendo possivel deletar o botao 
+btn = Button(root,text="iniciar",width=12,bg="red",height=2,font ="arial 20",command=lambda: [draw_canvas.desenha(cnv),btn.destroy(),btn2.destroy()])
 
 btn.place(x=50,y=100)
 
+btn2 = Button(root,text="recuperar partida",width=13,bg="red",height=2,font="arial 20",command=lambda: [draw_canvas.recuperaPartida(cnv),btn.destroy(),btn2.destroy()])
+
+btn2.place(x=50,y=200)
 
 cnv.pack()
 root.mainloop()
