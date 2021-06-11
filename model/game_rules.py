@@ -21,6 +21,9 @@ respostaSenha = []
 diculdade = 0
 n_de_cores = 0
 tentativas = limiteJogadas
+qtdTentativas = 0
+vitoria = False
+derrota = False
 
 
 #Coloca as variaveis de acordo com a dificuldade 
@@ -55,16 +58,18 @@ def criaSenha():
 
 #gera uma tentativa para o jogador
 def tentativaJogador(cor):
-  global tentativaSenha,respostaSenha
+  global tentativaSenha,respostaSenha,qtdTentativas
   respostaSenha = []
   tentativaSenha.append(cor)
   if (len(tentativaSenha)==nPedras):
+        qtdTentativas +=1
         compara()
         
 
 #compara a tentativa do jogador com a senha
 def compara():
-  global tentativaSenha,senha,nPedras, respostaSenha,tentativas
+  global tentativaSenha,senha,nPedras, respostaSenha,tentativas,vitoria,derrota
+  print(qtdTentativas,limiteJogadas)
   for i in range(nPedras):
     if tentativaSenha[i] == senha[i]:
       respostaSenha.append('black')
@@ -76,6 +81,7 @@ def compara():
       respostaSenha.append('grey')
   print(senha)
   if tentativaSenha == senha:
-    #print('ganhou')
-    return True
+    vitoria = True
+  elif qtdTentativas >= limiteJogadas:
+    derrota = True
 

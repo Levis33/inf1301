@@ -37,5 +37,7 @@ def insereCor(event,cnv):
         game_rules.tentativaJogador("purple")
         draw_canvas.redesenhaCirculos(cnv)
     
-
-    
+    if(game_rules.vitoria):
+        draw_canvas.desenhaVitoriaouDerrota(cnv,True)
+    elif(game_rules.derrota):
+        draw_canvas.desenhaVitoriaouDerrota(cnv,False)

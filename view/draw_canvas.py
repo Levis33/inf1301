@@ -38,6 +38,7 @@ def escolheNivel(cnv):
     cnv.delete("all")
     global xCentro, yCentro
     cnv.create_text((xCentro,50), fill="darkblue" ,text="escolha um nivel e clique em 'iniciar'", font = "arial 20")
+    #utilizando tags podemos fazer a funcao do click direto na game.py quando temos o desenho na tela
     nivel1 = cnv.create_rectangle(xCentro - 100,100,xCentro + 100,200,fill = "red",tags="nivel1")
     nivel2 = cnv.create_rectangle(xCentro - 100,300,xCentro + 100,400,fill = "red",tags="nivel2")
     nivel3 = cnv.create_rectangle(xCentro - 100,500,xCentro + 100,600,fill = "red",tags="nivel3")
@@ -51,7 +52,7 @@ def redesenhaCirculos(cnv):
     listaCoresDisponiveis = game_rules.cores[0:game_rules.n_de_cores]
     nPedras = game_rules.nPedras
     limiteJogadas = game_rules.limiteJogadas
-
+    
     if columnR <  limiteJogadas:
         if rowR < nPedras:
             x1 = rowR * SIZE
@@ -66,7 +67,6 @@ def redesenhaCirculos(cnv):
                     y1 = columnR * SIZE 
                     x2 = x1 + SIZE 
                     y2 = y1 + SIZE
-                    #if(game_rules.respostaSenha[i] != 'vazia'):#se o espaco for preto ou branco desenha a cor ao lado
                     cnv.create_oval(x1,y1,x2,y2, fill=game_rules.respostaSenha[i])
             rowR+=1
             if rowR == nPedras:
@@ -74,3 +74,17 @@ def redesenhaCirculos(cnv):
                 columnR +=1
                 game_rules.tentativaSenha = []
 
+
+def desenhaVitoriaouDerrota(cnv,vitoriaOuDerrota):
+    cnv.delete("all")
+
+    if(vitoriaOuDerrota):
+        texto = cnv.create_text((xCentro,150), text="Voce Ganhou! a senha era", font = "arial 20")
+    else:
+        texto = cnv.create_text((xCentro,150), text="Voce Perdeu! a senha era", font = "arial 20")
+
+    for j in range(len(game_rules.senha)):
+           cnv.create_oval(j * SIZE +500, (Y + 1) * SIZE - 850, (j + 1) * SIZE +500, (Y + 2) * SIZE - 850, fill = game_rules.senha[j], width = 5)
+
+    textoSaida = cnv.create_text((xCentro,300), text="Para jogar novamente reinicie o jogo", font = "arial 20")
+    
