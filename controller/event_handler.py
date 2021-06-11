@@ -1,17 +1,23 @@
+#Thiago Levis Alambert Rodrigues
 from view import draw_canvas
 from model import game_rules
-
+#nas funcoes nivel1-3 e apenas setados as variaveis de acordo com o nivel clicado
 def nivel1(*args):
     draw_canvas.inicia("facil")
-
+    #caso voce queira saber a senha apenas tirar o comentario abaixo
+    print(game_rules.senha)
 def nivel2(*args):
     draw_canvas.inicia("medio")
+    #caso voce queira saber a senha apenas tirar o comentario abaixo
+    #print(game_rules.senha)    
 
 def nivel3(*args):
     draw_canvas.inicia("dificil")
+    #caso voce queira saber a senha apenas tirar o comentario abaixo
+    #print(game_rules.senha)
 
 def insereCor(event,cnv):
-    #print(game_rules.senha)
+    #essa parte abaixo pega a posicao do mouse do click e verifica a posicao, vendo assim qual cor colocar dentro da tentativa do jogador
     if event.x < 50:
         game_rules.tentativaJogador("red")
         draw_canvas.redesenhaCirculos(cnv)
@@ -36,7 +42,7 @@ def insereCor(event,cnv):
     else:
         game_rules.tentativaJogador("purple")
         draw_canvas.redesenhaCirculos(cnv)
-    
+    #Desenha o canvas cajo ocorra uma vitoria/derrota
     if(game_rules.vitoria):
         draw_canvas.desenhaVitoriaouDerrota(cnv,True)
     elif(game_rules.derrota):

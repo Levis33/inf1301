@@ -1,3 +1,4 @@
+#Thiago Levis Alambert Rodrigues
 import tkinter
 from tkinter import *
 from view import draw_canvas

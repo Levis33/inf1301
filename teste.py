@@ -1,3 +1,4 @@
+#Thiago Levis Alambert Rodrigues
 import tkinter
 from model import game_rules
 from view import draw_canvas

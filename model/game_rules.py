@@ -1,3 +1,4 @@
+#Thiago Levis Alambert Rodrigues
 __all__ = ['setDificuldade', 'criaSenha', 'compara', 'tentativaJogador']
 import random
 
@@ -79,7 +80,7 @@ def compara():
 
     else:
       respostaSenha.append('grey')
-  print(senha)
+
   if tentativaSenha == senha:
     vitoria = True
   elif qtdTentativas >= limiteJogadas:
