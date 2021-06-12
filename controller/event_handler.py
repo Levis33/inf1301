@@ -50,3 +50,6 @@ def insereCor(event,cnv):
         draw_canvas.desenhaVitoriaouDerrota(cnv,True)
     elif(game_rules.derrota):
         draw_canvas.desenhaVitoriaouDerrota(cnv,False)
+
+def restartGame(*args):
+    game_rules.restartGame()

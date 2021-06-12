@@ -91,5 +91,6 @@ def desenhaVitoriaouDerrota(cnv,vitoriaOuDerrota):
     for j in range(len(game_rules.senha)):
            cnv.create_oval(j * SIZE +500, (Y + 1) * SIZE - 850, (j + 1) * SIZE +500, (Y + 2) * SIZE - 850, fill = game_rules.senha[j], width = 5)
 
-    textoSaida = cnv.create_text((xCentro,300), text="Para jogar novamente reinicie o jogo", font = "arial 20")
+
+    restartJogo = cnv.create_text((xCentro,300), text="Jogar novamente", font = "arial 20",tags="restartButton")
     

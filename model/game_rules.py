@@ -4,6 +4,8 @@
 
 __all__ = ['setDificuldade', 'criaSenha', 'compara', 'tentativaJogador']
 import random
+import sys
+import os
 
 white = (255,255,255)
 black = (0,0,0)
@@ -89,3 +91,6 @@ def compara():
   elif qtdTentativas >= limiteJogadas:
     derrota = True
 
+def restartGame():
+  python = sys.executable
+  os.execl(python, python, * sys.argv)

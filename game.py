@@ -26,6 +26,8 @@ cnv.tag_bind("cores","<Button-1>", lambda event: event_handler.insereCor(event,c
 #foi utilizado o lambda para não ser desenhado até o botao seja clicado
 btn = Button(root,text="iniciar",width=12,bg="red",height=2,font ="arial 20",command=lambda: [draw_canvas.desenha(cnv),btn.destroy()])
 
+cnv.tag_bind("restartButton","<Button-1>", event_handler.restartGame)
+
 btn.place(x=50,y=100)
 
 
