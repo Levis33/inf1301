@@ -1,4 +1,7 @@
 #Thiago Levis Alambert Rodrigues
+#Pedro Leon Fontes Cardoso
+#
+
 from view import draw_canvas
 from model import game_rules
 #nas funcoes nivel1-3 e apenas setados as variaveis de acordo com o nivel clicado

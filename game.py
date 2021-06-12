@@ -1,4 +1,7 @@
 #Thiago Levis Alambert Rodrigues
+#Pedro Leon Fontes Cardoso
+#
+
 import tkinter
 from tkinter import *
 from view import draw_canvas

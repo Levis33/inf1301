@@ -1,4 +1,7 @@
 #Thiago Levis Alambert Rodrigues
+#Pedro Leon Fontes Cardoso
+#
+
 from model import game_rules
 
 SIZE = 50
