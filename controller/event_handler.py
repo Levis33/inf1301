@@ -6,16 +6,19 @@ from view import draw_canvas
 from model import game_rules
 #nas funcoes nivel1-3 e apenas setados as variaveis de acordo com o nivel clicado
 def nivel1(*args):
-    draw_canvas.inicia("facil")
+    game_rules.nivel = "facil"
+    draw_canvas.inicia()
     #caso voce queira saber a senha apenas tirar o comentario abaixo
     print(game_rules.senha)
 def nivel2(*args):
-    draw_canvas.inicia("medio")
+    game_rules.nivel = "medio"
+    draw_canvas.inicia()
     #caso voce queira saber a senha apenas tirar o comentario abaixo
     #print(game_rules.senha)    
 
 def nivel3(*args):
-    draw_canvas.inicia("dificil")
+    game_rules.nivel = "dificil"
+    draw_canvas.inicia()
     #caso voce queira saber a senha apenas tirar o comentario abaixo
     #print(game_rules.senha)
 

@@ -1,0 +1,6 @@
+yellow blue yellow green red 
+medio
+red blue yellow cyan cyan white black black grey grey 
+yellow blue green green red black black white black black 
+red blue yellow pink pink white black black grey grey 
+yellow blue yellow green red black black black black black 

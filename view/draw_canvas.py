@@ -14,8 +14,8 @@ rowR = 0
 xCentro = 600
 yCentro = 350
 
-def inicia(nivel):
-    game_rules.setDificuldade(nivel)
+def inicia():
+    game_rules.setDificuldade()
     game_rules.criaSenha()
  
     
@@ -26,7 +26,7 @@ def desenha(cnv):
     limiteJogadas = game_rules.limiteJogadas
     #desenha os circulos de opcoes disponiveis no canto inferior esquerdo
     for j in range(len(listaCoresDisponiveis)):
-       cnv.create_oval(j * SIZE, (Y + 1) * SIZE - 400, (j + 1) * SIZE, (Y + 2) * SIZE - 400, fill = listaCoresDisponiveis[j], width = 5,tags='cores')
+           cnv.create_oval(j * SIZE, (Y + 1) * SIZE - 400, (j + 1) * SIZE, (Y + 2) * SIZE - 400, fill = listaCoresDisponiveis[j], width = 5,tags='cores')
     #desenha os circulos cinzas via coluna/linha de acordo com as variaveis do nivel
     for column in range(nPedras):
             for row in range(limiteJogadas):
@@ -51,12 +51,10 @@ def escolheNivel(cnv):
     nivel3text = cnv.create_text((xCentro,550), text="nivel 3", font = "arial 20",tags="nivel3")
     
 def redesenhaCirculos(cnv):
-    global sizeR,yR,columnR,rowR
-
-    listaCoresDisponiveis = game_rules.cores[0:game_rules.n_de_cores]
+    global columnR,rowR
     nPedras = game_rules.nPedras
     limiteJogadas = game_rules.limiteJogadas
-    # o codigo abaixo desenha os circulos de dicas (branco,preto e cinza) ao lado dos circulos ja existentes do proprio jogo
+    # o codigo abaixo desenha os circulos das cores selecionadas e o de dicas (branco,preto e cinza) ao lado dos circulos 
     #verifica se ainda esta dentro do limite da dificuldade
     if columnR <  limiteJogadas:
         if rowR < nPedras:
@@ -77,6 +75,7 @@ def redesenhaCirculos(cnv):
             if rowR == nPedras:
                 rowR = 0
                 columnR +=1
+                game_rules.guardaJogadas()
                 game_rules.tentativaSenha = []
 
 
@@ -95,6 +94,39 @@ def desenhaVitoriaouDerrota(cnv,vitoriaOuDerrota):
     restartJogo = cnv.create_text((xCentro,300), text="Jogar novamente", font = "arial 20",tags="restartButton")
     
 
-def recuperaPartida(cnv):
-    cnv.delete("all")
-    #continuar
+def recuperaPartida(cnv):  
+    global columnR,rowR
+    nPedras = game_rules.nPedras
+    print(game_rules.senha)
+    #chama a desenha(para desenhar os circulos cinzas e as opcoes de cores)
+    desenha(cnv)
+    
+    arq = open("rejogar.txt","r")
+    #removendo as duas primeiras linhas que sao de senha/nivel
+    arq.readline()
+    arq.readline()
+
+    for linha in arq:
+        game_rules.qtdTentativas +=1 #recupera a quantidade de tentativas
+        tentativa = linha.strip().split(" ")
+        
+        for i in range(0,int(len(tentativa)/2)):
+            if rowR < nPedras:
+                #desenha as pedras coloridas tentativas
+                x1 = rowR * SIZE
+                y1 = columnR * SIZE
+                x2 = x1 + SIZE
+                y2 = y1 + SIZE
+                cnv.create_oval(x1,y1,x2,y2, fill=tentativa[rowR])
+                #desenha as pedras de dicas               
+                x1 = (rowR) * SIZE +(nPedras*50+10) 
+                y1 = columnR * SIZE 
+                x2 = x1 + SIZE 
+                y2 = y1 + SIZE
+                cnv.create_oval(x1,y1,x2,y2, fill=tentativa[i+int(len(tentativa)/2)])
+                
+            rowR+=1
+            if rowR == nPedras:
+                rowR = 0
+                columnR +=1      
+    arq.close()

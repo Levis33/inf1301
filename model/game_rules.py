@@ -30,11 +30,11 @@ tentativas = limiteJogadas
 qtdTentativas = 0
 vitoria = False
 derrota = False
-
+nivel = "facil"
 
 #Coloca as variaveis de acordo com a dificuldade 
-def setDificuldade(nivel):
-  global senha,nPedras,dificuldade,n_de_cores,limiteJogadas,tentativas
+def setDificuldade():
+  global senha,nPedras,dificuldade,n_de_cores,limiteJogadas,tentativas,nivel
 
   if nivel == 'facil':
     dificuldade = 1
@@ -94,3 +94,33 @@ def compara():
 def restartGame():
   python = sys.executable
   os.execl(python, python, * sys.argv)
+
+def guardaInfosRegras():
+  global senha,nivel
+  arq = open("rejogar.txt","w")
+  senhaGuarda = ""
+  for el in senha:
+        senhaGuarda += str(el)+ ' '
+  arq.write("%s\n%s\n" %(senhaGuarda,nivel))
+  arq.close()
+
+def guardaJogadas():
+  global tentativaSenha,respostaSenha
+  arq = open("rejogar.txt","a")
+  print(tentativaSenha,respostaSenha)
+  tentativaGuarda = ""
+  respostaGuarda = ""
+  for i in range(0,len(tentativaSenha)):
+    tentativaGuarda += str(tentativaSenha[i])+ ' '
+    respostaGuarda += str(respostaSenha[i]) + ' '
+  arq.writelines("%s%s\n" %(tentativaGuarda,respostaGuarda))
+  arq.close()
+
+def inicializaJogoGuardado():
+  global senha,nivel
+  arq = open("rejogar.txt","r")
+  senha = arq.readline().strip().split(' ') #coloca a senha do arquivo txt na senha global
+  nivel = arq.readline().strip() #coloca o nivel
+  setDificuldade()
+  arq.close()
+
