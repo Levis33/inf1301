@@ -94,3 +94,7 @@ def desenhaVitoriaouDerrota(cnv,vitoriaOuDerrota):
 
     restartJogo = cnv.create_text((xCentro,300), text="Jogar novamente", font = "arial 20",tags="restartButton")
     
+
+def recuperaPartida(cnv):
+    cnv.delete("all")
+    #continuar
