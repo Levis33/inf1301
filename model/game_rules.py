@@ -1,6 +1,6 @@
 #Thiago Levis Alambert Rodrigues
 #Pedro Leon Fontes Cardoso
-#
+#Raphael Ponce
 
 __all__ = ['setDificuldade', 'criaSenha', 'compara', 'tentativaJogador']
 import random

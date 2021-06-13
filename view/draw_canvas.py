@@ -1,6 +1,6 @@
 #Thiago Levis Alambert Rodrigues
 #Pedro Leon Fontes Cardoso
-#
+#Raphael Ponce
 
 from model import game_rules
 

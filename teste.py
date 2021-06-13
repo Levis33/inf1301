@@ -1,4 +1,7 @@
 #Thiago Levis Alambert Rodrigues
+#Pedro Leon Fontes Cardoso
+#Raphael Ponce
+
 import tkinter
 import sys
 import os
